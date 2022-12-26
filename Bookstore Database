@@ -1,0 +1,28 @@
+--Create a table including 15 books, their price, number of pages and year of publishing.
+
+CREATE TABLE books (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, pages INTEGER, year INTEGER);
+
+INSERT INTO books VALUES (1, "Harry Potter and the Prisoner of Azkiban", 19, 456, 1996);
+INSERT INTO books VALUES (2, "The Seven Husbands of Evelyn Hugo", 19, 332, 2020);
+INSERT INTO books VALUES (3, "The Invisible Life of Addie LaRue", 21, 501, 2018);
+INSERT INTO books VALUES (4, "The House in the Cerulean Sea", 24, 344, 2020);
+INSERT INTO books VALUES (5, "The China Study", 18, 565, 2010);
+INSERT INTO books VALUES (6, "Angels and Demons", 13, 479, 2005);
+INSERT INTO books VALUES (7, "The Priory of the Orange Tree", 23, 804, 2017);
+INSERT INTO books VALUES (8, "Red, White and Royal Blue", 22, 490, 2019);
+INSERT INTO books VALUES (9, "Kane and Able", 16, 460, 1969);
+INSERT INTO books VALUES (10, "Njal's Saga", 15, 329, 1995);
+INSERT INTO books VALUES (11, "The Midnight Library", 21, 300, 2019);
+INSERT INTO books VALUES (12, "Where the Crawdads Sing", 23, 378, 2016);
+INSERT INTO books VALUES (13, "The Alienist", 19, 503, 2012);
+INSERT INTO books VALUES (14, "The Book Thief", 22, 516, 2003);
+INSERT INTO books VALUES (15, "Why We Sleep", 25, 550, 2020);
+
+--Order books by prce in ascending order.
+
+SELECT * FROM books;
+SELECT * FROM books ORDER BY price;
+
+--Display only book title and number of pages.
+
+SELECT name, SUM(pages) FROM books GROUP BY name;
