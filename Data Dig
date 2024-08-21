@@ -43,13 +43,23 @@ INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
 --Stipulating what numerical rankings merit each level of popularity.
-
-SELECT name, popularity, CASE WHEN popularity < 5 THEN "very popular" WHEN popularity < 10 THEN "popular" WHEN popularity < 20 THEN "mid" ELSE "unpopular" END as "ranking" FROM marvels;
+SELECT name, popularity, 
+CASE WHEN popularity < 5 
+THEN "very popular" 
+WHEN popularity < 10 
+THEN "popular" 
+WHEN popularity < 20 
+THEN "mid" 
+ELSE "unpopular" 
+END as "ranking" 
+FROM marvels;
 
 --What Marvel character(s) have both a speed and strength score greater than 5?
-
-SELECT * FROM marvels WHERE speed > 5 AND strength > 5;
+SELECT * 
+FROM marvels 
+WHERE speed > 5 
+AND strength > 5;
 
 --What is the average speed of all Marvel characters?
-
-SELECT AVG(speed) AS avg_speed FROM marvels;
+SELECT AVG(speed) AS avg_speed 
+FROM marvels;
