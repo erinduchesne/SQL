@@ -27,3 +27,19 @@ ORDER BY price;
 SELECT name, SUM(pages) 
 FROM books 
 GROUP BY name;
+
+--Calculate the average price of books published after 2010.
+SELECT AVG(price) AS avg_price
+FROM books
+WHERE year > 2010;
+
+--Select books with more than 500 pages and sort them by price in descending order.
+SELECT name, price, pages
+FROM books
+WHERE pages > 500
+ORDER BY price DESC;
+
+--Group the books by price and count the number of books in each price category.
+SELECT price, COUNT(id) AS book_count
+FROM books
+GROUP BY price;
