@@ -1,0 +1,29 @@
+--Categorize companies based on their revenue into "Small," "Medium," and "Large" categories using a CASE statement
+SELECT company_name,
+CASE WHEN revenue < 1000000 THEN 'Small'
+WHEN revenue BETWEEN 1000000 AND 10000000 THEN 'Medium'
+ELSE 'Large'
+END AS company_size
+FROM fortune_companies;
+
+--Calculate the average employee tenure by industry and filter out industries where the average tenure is less than 5 years using a HAVING clause.
+SELECT industry, AVG(avg_employee_tenure) AS avg_tenure
+FROM fortune_companies
+GROUP BY industry
+HAVING AVG(avg_employee_tenure) > 5;
+
+--Retrieve companies that provide healthcare benefits and either have more than 500 employees or offer more than 20 days of paid time off.
+SELECT company_name, employees, paid_time_off_days, healthcare_benefits
+FROM fortune_companies
+WHERE healthcare_benefits = 1
+AND (employees > 500 OR paid_time_off_days > 20);
+
+--Calculate the total number of employees across all Fortune 500 companies using the SUM aggregate function.
+SELECT SUM(employees) AS total_employees
+FROM fortune_companies;
+
+--Calculate the average revenue for companies that offer at least 12 weeks of maternity leave and provide healthcare benefits.
+SELECT AVG(revenue) AS avg_revenue
+FROM fortune_companies
+WHERE maternity_leave_weeks >= 12
+AND healthcare_benefits = 1;
